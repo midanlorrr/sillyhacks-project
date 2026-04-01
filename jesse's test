@@ -1,0 +1,19 @@
+
+
+
+
+function fx(x,y)  {
+    
+    let a =  [];
+    let j = x**2;
+    let k = y*2;
+
+    a = [j, k];
+    return a;
+}
+
+let gx = fx(1,2);
+
+
+console.log(gx);
+
