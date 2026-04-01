@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  background: transparent;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#sprite {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#sprite:hover {
+  transform: scale(1.1);
+}
+
+#dialogue {
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
