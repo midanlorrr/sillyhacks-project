@@ -5,18 +5,20 @@ let win;
 app.whenReady().then(() => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
-  const windowWidth = 300;
-  const windowHeight = 300;
+  const windowWidth = 1000;
+  const windowHeight = 820;
 
   win = new BrowserWindow({
     width: windowWidth,
     height: windowHeight,
-    x: width - windowWidth - 20,   // right corner
-    y: height - windowHeight - 20, // bottom corner
-    frame: false,
-    transparent: true,
-    alwaysOnTop: true,
-    resizable: false
+    x: Math.max(0, Math.floor((width - windowWidth) / 2)),
+    y: Math.max(0, Math.floor((height - windowHeight) / 2)),
+    frame: true,
+    transparent: false,
+    backgroundColor: '#111111',
+    alwaysOnTop: false,
+    resizable: true,
+    autoHideMenuBar: true,
   });
 
   win.loadFile('index.html');
