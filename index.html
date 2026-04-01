@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Sprite Preview</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      font-family: "Segoe UI", sans-serif;
+      color: #ffffff;
+    }
+
+    .preview {
+      text-align: center;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .sprite {
+      width: 32px;
+      height: 32px;
+      background-image: url("assets/Cat Sprite Sheet.png");
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      image-rendering: pixelated;
+      transform: scale(8);
+      transform-origin: center;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    }
+
+    .label {
+      margin-top: 140px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+  </style>
 </head>
 <body>
+  <div class="preview">
+    <div class="sprite" id="sprite" aria-label="First row animated cat sprite"></div>
+    <div class="label">First row animation (frame by frame)</div>
+  </div>
 
-<div id="assistant">
-  <img id="sprite" src="https://i.imgur.com/8QfQFQK.png" />
-  <p id="dialogue">Hi bestie 😊</p>
-</div>
+  <script>
+    const sprite = document.getElementById("sprite");
 
-<input id="userInput" placeholder="Ask me something..." />
-<button onclick="reply()">Ask</button>
+    // Based on a 256x320 sheet with 32x32 frames: 8 columns x 10 rows.
+    // The first row has 4 populated frames, so we only loop those 4.
+    const frameWidth = 32;
+    const frameHeight = 32;
+    const firstRowIndex = 0;
+    const framesInFirstRow = 4;
+    let frame = 0;
 
-<script src="script.js"></script>
+    setInterval(() => {
+      const x = -(frame * frameWidth);
+      const y = -(firstRowIndex * frameHeight);
+      sprite.style.backgroundPosition = `${x}px ${y}px`;
+      frame = (frame + 1) % framesInFirstRow;
+    }, 180);
+  </script>
 </body>
 </html>
