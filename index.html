@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Kitty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- ── ACTION POPUP ── -->
+  <div id="action-popup">
+    <div class="action-row">
+      <button class="act-btn" id="btn-feed">
+        <span class="act-icon">🍕</span>
+        <span class="act-label">FEED</span>
+      </button>
+      <button class="act-btn" id="btn-sleep">
+        <span class="act-icon">💤</span>
+        <span class="act-label">SLEEP</span>
+      </button>
+      <button class="act-btn" id="btn-chat">
+        <span class="act-icon">💬</span>
+        <span class="act-label">CHAT</span>
+      </button>
+    </div>
+
+    <div class="hunger-row">
+      <span class="hunger-label">HUNGER</span>
+      <div class="hunger-track">
+        <div id="hunger-fill"></div>
+      </div>
+      <span id="hunger-pct">0%</span>
+    </div>
+
+    <div id="chat-box">
+      <input id="chat-input" type="text"
+             placeholder="ask me anything..."
+             maxlength="100" autocomplete="off"/>
+      <button id="chat-send">▶</button>
+    </div>
+
+    <button id="close-btn">[ X CLOSE ]</button>
+  </div>
+
+  <!-- ── SPEECH BUBBLE ── -->
+  <div id="speech-bubble">
+    <span id="speech-text"></span>
+    <div class="bubble-tail"></div>
+  </div>
+
+  <!-- ── CAT SPRITE ── -->
+  <div id="cat-wrap">
+    <canvas id="cat-canvas" width="32" height="32"></canvas>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
